@@ -1,0 +1,67 @@
+connect
+USER1238@orclpdb
+iutcse
+
+@C:/Users/SANZI/Downloads/Citizen_DDL_DML.sql;
+
+1.
+SELECT * FROM Updated_citizen;
+
+2.
+SELECT c_name,age,occupation FROM Updated_citizen;
+
+
+3.
+SELECT C_Name FROM Updated_citizen WHERE C_Home='Dhaka';
+
+4.
+SELECT C_Name FROM Updated_citizen WHERE New_Salary<90000;
+
+5.
+SELECT C_Name,C_Home FROM Updated_citizen WHERE age<45;
+
+6.
+SELECT * FROM Updated_citizen WHERE gender='Female';
+
+7.
+SELECT * FROM Updated_citizen WHERE Occupation IN ('Doctor','Engineer','Retired');
+
+8.
+SELECT C_ID,C_Name,New_Salary FROM Updated_citizen WHERE Occupation IN ('Business','Musician');
+
+9.
+SELECT * FROM Updated_Citizen WHERE Occupation='Doctor' OR Occupation='Teacher';
+
+10.
+SELECT * FROM Updated_Citizen WHERE Occupation='Engineer' ORDER BY New_Salary ASC;
+
+11.
+SELECT C_Name ORDER BY C_Name ASC,Age ORDER BY Age ASC FROM Updated_Citizen;
+
+12.
+SELECT DISTINCT Age FROM Updated_Citizen;
+SELECT Age AS Unique_Age FROM Updated_Citizen;
+
+13.
+UPDATE Updated_Citizen SET New_Salary=New_Salary+New_Salary*0.4  WHERE Occupation<>'Retired';
+
+14.
+SELECT * FROM Updated_citizen WHERE GENDER='Male' AND New_Salary='40000';
+
+15.
+SELECT * FROM Updated_citizen WHERE New_Salary NOT BETWEEN 30000 AND 50000;
+
+16.
+SELECT * FROM Updated_citizen WHERE Age NOT BETWEEN 35 AND 50;
+
+17.
+UPDATE Updated_Citizen SET C_Home='Chattogram' WHERE C_Home='Ctg';
+
+18.
+DELETE FROM Updated_Citizen WHERE rownum<=10;
+
+19.
+UPDATE Updated_Citizen SET age=age+10,New_Salary=New_Salary+New_Salary*0.3;
+
+20.
+select salary, new_salary from Citizen, Updated_Citizen where Citizen.c_id = Updated_Citizen.c_id and Citizen.c_name = Updated_Citizen.c_name;
