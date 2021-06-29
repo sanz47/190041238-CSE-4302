@@ -1,0 +1,370 @@
+USER1238@orclpdb
+iutcse
+
+
+
+@C:/Users/SANZI/Downloads/Citizen_DDL_DML.sql;
+
+
+
+1.
+SELECT * FROM citizen;
+
+      C_ID C_NAME     C_HOME            AGE OCCUPATION      GENDER     SALARY
+---------- ---------- ---------- ---------- --------------- ------ ----------
+         1 Alice      Dhaka              25 Teacher         Male        50000
+         2 Bob        Dhaka              56 Service         Male        60000
+         3 Charlie    Ctg                71 Retired         Male        10000
+         4 Erin       Ctg                13 Student         Female        500
+         5 Dave       Dhaka              45 Service         Male        40000
+         6 Faythe     Gazipur            54 Doctor          Female      55000
+         7 Grace      Gazipur            65 Musician        Female       5000
+         8 Ivan       Dhaka              56 Engineer        Male        60000
+         9 Frank      Ctg                23 Student         Male         1000
+        10 Micheal    Comilla            32 Teacher         Male        45000
+        11 Niaj       Comilla            51 Farmer          Male        20000
+        12 Heidi      Khulna             15 Student         Female       1500
+        13 Ted        Ctg                25 Business        Male       100000
+        14 Walter     Comilla            52 Doctor          Male        70000
+        15 Victor     Gazipur            53 Teacher         Male        50000
+        16 Judy       Dhaka              35 Musician        Female      50000
+        17 Pat        Khulna             43 Service         Male        50000
+        18 Olivia     Khulna             34 Service         Female      45000
+        19 Trent      Ctg                16 Student         Male          500
+        20 Peggy      Comilla            32 Business        Female     120000
+        21 Wendy      Ctg                25 Musician        Female     100000
+        22 Oscar      Gazipur            14 Student         Male          400
+        23 Mallet     Dhaka              25 Engineer        Male        50000
+
+23 rows selected.
+
+
+
+2.
+SELECT c_name,age,occupation FROM citizen;
+
+C_NAME            AGE OCCUPATION
+---------- ---------- ---------------
+Alice              25 Teacher
+Bob                56 Service
+Charlie            71 Retired
+Erin               13 Student
+Dave               45 Service
+Faythe             54 Doctor
+Grace              65 Musician
+Ivan               56 Engineer
+Frank              23 Student
+Micheal            32 Teacher
+Niaj               51 Farmer
+Heidi              15 Student
+Ted                25 Business
+Walter             52 Doctor
+Victor             53 Teacher
+Judy               35 Musician
+Pat                43 Service
+Olivia             34 Service
+Trent              16 Student
+Peggy              32 Business
+Wendy              25 Musician
+Oscar              14 Student
+Mallet             25 Engineer
+
+23 rows selected.
+
+3.
+SELECT c_name FROM citizen WHERE c_home='Dhaka';
+
+C_NAME
+----------
+Alice
+Bob
+Dave
+Ivan
+Judy
+Mallet
+
+6 rows selected.
+
+
+
+4.
+SELECT * FROM Citizen WHERE Salary > 45000;
+
+      C_ID C_NAME     C_HOME            AGE OCCUPATION      GENDER     SALARY
+---------- ---------- ---------- ---------- --------------- ------ ----------
+         1 Alice      Dhaka              25 Teacher         Male        50000
+         2 Bob        Dhaka              56 Service         Male        60000
+         6 Faythe     Gazipur            54 Doctor          Female      55000
+         8 Ivan       Dhaka              56 Engineer        Male        60000
+        13 Ted        Ctg                25 Business        Male       100000
+        14 Walter     Comilla            52 Doctor          Male        70000
+        15 Victor     Gazipur            53 Teacher         Male        50000
+        16 Judy       Dhaka              35 Musician        Female      50000
+        17 Pat        Khulna             43 Service         Male        50000
+        20 Peggy      Comilla            32 Business        Female     120000
+        21 Wendy      Ctg                25 Musician        Female     100000
+        23 Mallet     Dhaka              25 Engineer        Male        50000
+
+12 rows selected.
+
+
+5.
+SELECT c_name,c_home FROM citizen WHERE age<45;
+
+C_NAME     C_HOME
+---------- ----------
+Alice      Dhaka
+Erin       Ctg
+Frank      Ctg
+Micheal    Comilla
+Heidi      Khulna
+Ted        Ctg
+Judy       Dhaka
+Pat        Khulna
+Olivia     Khulna
+Trent      Ctg
+Peggy      Comilla
+Wendy      Ctg
+Oscar      Gazipur
+Mallet     Dhaka
+
+14 rows selected.
+
+
+6.
+SELECT * FROM citizen WHERE gender='Female';
+
+      C_ID C_NAME     C_HOME            AGE OCCUPATION      GENDER     SALARY
+---------- ---------- ---------- ---------- --------------- ------ ----------
+         4 Erin       Ctg                13 Student         Female        500
+         6 Faythe     Gazipur            54 Doctor          Female      55000
+         7 Grace      Gazipur            65 Musician        Female       5000
+        12 Heidi      Khulna             15 Student         Female       1500
+        16 Judy       Dhaka              35 Musician        Female      50000
+        18 Olivia     Khulna             34 Service         Female      45000
+        20 Peggy      Comilla            32 Business        Female     120000
+        21 Wendy      Ctg                25 Musician        Female     100000
+
+8 rows selected.
+
+
+
+7.
+SELECT * FROM citizen WHERE occupation IN ('Doctor','Engineer','Retired');
+
+      C_ID C_NAME     C_HOME            AGE OCCUPATION      GENDER     SALARY
+---------- ---------- ---------- ---------- --------------- ------ ----------
+         3 Charlie    Ctg                71 Retired         Male        10000
+         6 Faythe     Gazipur            54 Doctor          Female      55000
+         8 Ivan       Dhaka              56 Engineer        Male        60000
+        14 Walter     Comilla            52 Doctor          Male        70000
+        23 Mallet     Dhaka              25 Engineer        Male        50000
+
+
+
+8.
+SELECT c_id,c_name,salary FROM citizen WHERE occupation IN ('Business','Musician');
+
+      C_ID C_NAME         SALARY
+---------- ---------- ----------
+         7 Grace            5000
+        13 Ted            100000
+        16 Judy            50000
+        20 Peggy          120000
+        21 Wendy          100000
+
+
+
+
+9.
+SELECT * FROM citizen WHERE occupation='Doctor' OR occupation='Engineer';
+
+      C_ID C_NAME     C_HOME            AGE OCCUPATION      GENDER     SALARY
+---------- ---------- ---------- ---------- --------------- ------ ----------
+         6 Faythe     Gazipur            54 Doctor          Female      55000
+         8 Ivan       Dhaka              56 Engineer        Male        60000
+        14 Walter     Comilla            52 Doctor          Male        70000
+        23 Mallet     Dhaka              25 Engineer        Male        50000
+
+
+
+10.
+SELECT * FROM citizen WHERE occupation='Doctor' ORDER BY salary ASC;
+
+      C_ID C_NAME     C_HOME            AGE OCCUPATION      GENDER     SALARY
+---------- ---------- ---------- ---------- --------------- ------ ----------
+         6 Faythe     Gazipur            54 Doctor          Female      55000
+        14 Walter     Comilla            52 Doctor          Male        70000
+
+
+
+11.
+SELECT c_name,age FROM citizen ORDER BY age DESC,c_name ASC;
+
+C_NAME            AGE
+---------- ----------
+Charlie            71
+Grace              65
+Bob                56
+Ivan               56
+Faythe             54
+Victor             53
+Walter             52
+Niaj               51
+Dave               45
+Pat                43
+Judy               35
+Olivia             34
+Micheal            32
+Peggy              32
+Alice              25
+Mallet             25
+Ted                25
+Wendy              25
+Frank              23
+Trent              16
+Heidi              15
+Oscar              14
+Erin               13
+
+23 rows selected.
+
+
+
+12.
+SELECT DISTINCT c_home AS Unique_District FROM citizen;
+
+UNIQUE_DIS
+----------
+Gazipur
+Ctg
+Comilla
+Dhaka
+Khulna
+
+
+
+13.
+UPDATE citizen SET salary=salary+salary*0.4  WHERE occupation<>'Retired';
+
+22 rows updated.
+
+
+
+14.
+SELECT * FROM citizen WHERE gender='Male' AND salary>50000;
+
+      C_ID C_NAME     C_HOME            AGE OCCUPATION      GENDER     SALARY
+---------- ---------- ---------- ---------- --------------- ------ ----------
+         1 Alice      Dhaka              25 Teacher         Male        70000
+         2 Bob        Dhaka              56 Service         Male        84000
+         5 Dave       Dhaka              45 Service         Male        56000
+         8 Ivan       Dhaka              56 Engineer        Male        84000
+        10 Micheal    Comilla            32 Teacher         Male        63000
+        13 Ted        Ctg                25 Business        Male       140000
+        14 Walter     Comilla            52 Doctor          Male        98000
+        15 Victor     Gazipur            53 Teacher         Male        70000
+        17 Pat        Khulna             43 Service         Male        70000
+        23 Mallet     Dhaka              25 Engineer        Male        70000
+
+10 rows selected.
+
+
+
+15.
+SELECT * FROM citizen WHERE salary BETWEEN 30000 AND 50000;
+
+no rows selected
+
+
+
+16.
+SELECT salary FROM citizen WHERE age NOT BETWEEN 30 AND 55;
+
+    SALARY
+----------
+     70000
+     84000
+     10000
+       700
+      7000
+     84000
+      1400
+      2100
+    140000
+       700
+    140000
+       560
+     70000
+
+13 rows selected.
+
+
+
+17.
+UPDATE updated_citizen SET c_home='Cumilla' WHERE c_home='Comilla';
+
+4 rows updated.
+
+
+
+18.
+DELETE FROM updated_citizen WHERE c_id BETWEEN 1 AND 10;
+
+10 rows deleted.
+
+SELECT * FROM updated_citizen;
+
+      C_ID C_NAME     C_HOME            AGE OCCUPATION      GENDER NEW_SALARY
+---------- ---------- ---------- ---------- --------------- ------ ----------
+        11 Niaj       Cumilla            51 Farmer          Male        20000
+        12 Heidi      Khulna             15 Student         Female       1500
+        13 Ted        Ctg                25 Business        Male       100000
+        14 Walter     Cumilla            52 Doctor          Male        70000
+        15 Victor     Gazipur            53 Teacher         Male        50000
+        16 Judy       Dhaka              35 Musician        Female      50000
+        17 Pat        Khulna             43 Service         Male        50000
+        18 Olivia     Khulna             34 Service         Female      45000
+        19 Trent      Ctg                16 Student         Male          500
+        20 Peggy      Cumilla            32 Business        Female     120000
+        21 Wendy      Ctg                25 Musician        Female     100000
+        22 Oscar      Gazipur            14 Student         Male          400
+        23 Mallet     Dhaka              25 Engineer        Male        50000
+
+13 rows selected.
+
+
+
+19.
+UPDATE updated_citizen SET age=age+10,new_salary=new_salary+new_salary*0.3;
+
+13 rows updated
+
+
+20.
+SELECT c_id,c_name,salary,new_salary FROM citizen NATURAL JOIN updated_citizen;
+
+no rows selected
+
+Here Natural Join isn't working because c_id and c_name are present in both the tables but we've deleted the first 10 entries of updated_citizen Table . That's why it's not showing us our desired result .
+
+SELECT citizen.c_id,citizen.c_name,salary,new_salary FROM citizen, updated_citizen WHERE citizen.c_id=updated_citizen.c_id;
+
+      C_ID C_NAME         SALARY NEW_SALARY
+---------- ---------- ---------- ----------
+        11 Niaj            28000      26000
+        12 Heidi            2100       1950
+        13 Ted            140000     130000
+        14 Walter          98000      91000
+        15 Victor          70000      65000
+        16 Judy            70000      65000
+        17 Pat             70000      65000
+        18 Olivia          63000      58500
+        19 Trent             700        650
+        20 Peggy          168000     156000
+        21 Wendy          140000     130000
+        22 Oscar             560        520
+        23 Mallet          70000      65000
+
+13 rows selected.
+
