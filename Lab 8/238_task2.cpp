@@ -27,7 +27,7 @@ public:
     ~Staff(){
     }
 };
-class Teacher:public Staff
+class Teacher:protected Staff
 {
 private:
     string subject;
@@ -53,7 +53,7 @@ public:
         Staff::whoAmI();
     }
 };
-class officer:public Staff
+class officer:protected Staff
 {
 private:
     string grade;
